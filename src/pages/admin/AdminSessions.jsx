@@ -1,0 +1,3 @@
+import { Badge, Card, PageHeader } from '@/components/UI'
+import { sessions } from '@/data/dummyData'
+export default function AdminSessions(){return <div><PageHeader title="Sessions" subtitle="Monitor pending, active, and completed sessions."/><Card><table className="table"><thead><tr><th>ID</th><th>Requester</th><th>Receiver</th><th>Exchange</th><th>Date</th><th>Status</th></tr></thead><tbody>{sessions.map(s=><tr key={s.id}><td>#{s.id}</td><td>{s.requester.name}</td><td>{s.receiver.name}</td><td>{s.skillOffered} ↔ {s.skillWanted}</td><td>{s.date} {s.time}</td><td><Badge variant={s.status==='pending'?'warning':s.status==='confirmed'?'success':'outline'}>{s.status}</Badge></td></tr>)}</tbody></table></Card></div>}

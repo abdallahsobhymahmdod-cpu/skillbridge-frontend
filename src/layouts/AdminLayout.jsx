@@ -1,0 +1,6 @@
+import { NavLink, Outlet, useNavigate } from 'react-router-dom'
+import { LayoutDashboard, Users, Lightbulb, GitMerge, Calendar, BarChart3, Settings, LogOut } from 'lucide-react'
+import { Button } from '@/components/UI'
+import { useAuth } from '@/context/AuthContext'
+const links = [['/admin','Dashboard',LayoutDashboard],['/admin/users','Users',Users],['/admin/skills','Skills',Lightbulb],['/admin/matches','Matches',GitMerge],['/admin/sessions','Sessions',Calendar],['/admin/reports','Reports',BarChart3],['/admin/settings','Settings',Settings]]
+export default function AdminLayout(){const {logout}=useAuth();const navigate=useNavigate();return <div className="app-shell"><aside className="sidebar admin"><div className="side-brand"><div className="admin-mark">SB</div><div><b>Admin Panel</b><small>Platform control</small></div></div><nav>{links.map(([to,label,Icon])=><NavLink end={to==='/admin'} key={to} to={to}><Icon size={18}/>{label}</NavLink>)}</nav><Button variant="ghost" onClick={()=>{logout();navigate('/login')}}><LogOut size={16}/>Logout</Button></aside><main className="main"><header className="topbar"><div><h2>Admin Dashboard</h2><p>Manage SkillBridge platform data.</p></div></header><section className="content"><Outlet/></section></main></div>}

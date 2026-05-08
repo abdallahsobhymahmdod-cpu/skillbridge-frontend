@@ -1,0 +1,3 @@
+import { Card } from '@/components/UI'
+const faqs=[['Is SkillBridge free?','Yes. Users exchange skills instead of paying money.'],['How are matches created?','The system compares skills offered and skills wanted between users.'],['Can I chat with matches?','Yes. Accepted matches can coordinate sessions through chat.'],['Is this ready for backend?','Yes. Services are prepared to switch from dummy data to API endpoints.']]
+export default function FAQ(){return <section className="section"><div className="section-inner"><div className="section-title"><h2>Frequently Asked Questions</h2></div><div className="grid grid-2">{faqs.map(([q,a])=><Card key={q}><h3>{q}</h3><p className="muted">{a}</p></Card>)}</div></div></section>}

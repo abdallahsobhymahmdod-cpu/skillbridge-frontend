@@ -1,0 +1,3 @@
+import { Avatar, Badge, Card, PageHeader } from '@/components/UI'
+import { matches } from '@/data/dummyData'
+export default function AdminMatches(){return <div><PageHeader title="Matches" subtitle="All suggested and accepted matches."/><div className="grid grid-3">{matches.map(m=><Card key={m.id}><div style={{display:'flex',gap:12,alignItems:'center'}}><Avatar name={m.matchedUser.name}/><div><h3>{m.matchedUser.name}</h3><p className="muted">Match #{m.id}</p></div></div><div className="exchange"><div className="exchange-row"><span>Teaches</span><Badge variant="secondary">{m.teaches}</Badge></div><div className="exchange-row"><span>Wants</span><Badge>{m.wants}</Badge></div></div><Badge variant="warning">{m.matchScore}% Score</Badge></Card>)}</div></div>}

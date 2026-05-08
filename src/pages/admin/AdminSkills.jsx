@@ -1,0 +1,4 @@
+import { Plus, Trash2 } from 'lucide-react'
+import { Badge, Button, Card, PageHeader } from '@/components/UI'
+import { skills } from '@/data/dummyData'
+export default function AdminSkills(){return <div><PageHeader title="Skills Management" subtitle="Add, edit, and remove platform skills." action={<Button><Plus size={16}/>Add Skill</Button>}/><div className="grid grid-3">{skills.map(s=><Card key={s.id}><Badge variant="outline">{s.category}</Badge><h3 style={{marginTop:12}}>{s.name}</h3><p className="muted">Default level: {s.level}</p><div style={{display:'flex',gap:8,marginTop:14}}><Badge>{s.demandCount} demand</Badge><Badge variant="secondary">{s.offeredCount} offered</Badge></div><Button variant="outline" size="sm" style={{marginTop:18}}><Trash2 size={14}/>Delete</Button></Card>)}</div></div>}
